@@ -14,7 +14,7 @@ const studentSign = require("./routes/studentsign");
 const facultySign = require("./routes/facultysign");
 const adminSign = require("./routes/adminsign");
 const studentLogin = require("./routes/studentlogin");
-const facultyLogin = require("./routes/facultylogin");  
+const facultyLogin = require("./routes/facultyloginpage");  
 const adminLogin = require("./routes/adminlogin");
 
 app.use("/api", studentSign);
