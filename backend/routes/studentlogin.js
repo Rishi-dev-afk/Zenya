@@ -8,7 +8,7 @@ router.post('admin/login', async (req, res) => {
 
     try {
         // Check if user exists
-        const userQuery = await pool.query("SELECT * FROM admin WHERE email = $1", [email]);
+        const userQuery = await pool.query("SELECT * FROM student WHERE email = $1", [email]);
         if (userQuery.rows.length === 0) {
             return res.status(400).json({ error: "User not found" });
         }
