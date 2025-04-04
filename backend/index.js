@@ -28,7 +28,7 @@ app.use("/api", adminLogin);
 app.use("/api", addCourse);
 
 // GET courses by admin ID
-app.get('api/courses/:adminId', async (req, res) => {
+app.get('api/course/courses/:adminId', async (req, res) => {
   const { adminId } = req.params;
 
   try {
