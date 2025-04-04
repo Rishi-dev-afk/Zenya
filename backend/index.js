@@ -79,13 +79,22 @@ app.get('/api/admin/:adminId/stats', async (req, res) => {
             [adminId]
         );
 
+        const coursequery = await pool.query(
+          'SELECT COUNT(*) FROM courses WHERE admin_id = $1',
+          [adminId]
+      );
+
+
         const studentCount = parseInt(studentQuery.rows[0].count, 10);
         const facultyCount = parseInt(facultyQuery.rows[0].count, 10);
+        const courseCount = parseInt(coursequery.rows[0].count, 10);
 
         res.json({
             admin_id: adminId,
             student_count: studentCount,
-            faculty_count: facultyCount
+            faculty_count: facultyCount,
+            course_count: courseCount,
+
         });
     } catch (err) {
         console.error('❌ Error fetching stats:', err.message);
