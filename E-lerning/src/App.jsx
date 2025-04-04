@@ -10,6 +10,9 @@ import Facultyloginpage from './faculty_login_page.jsx';
 import Facultysigninpage from './faculty_signin_page.jsx';
 import Studentloginpage from './student_login_page.jsx';
 import Studentsigninpage from './student_signin_page.jsx';
+import StudentPage from './studentpage.jsx';
+import AdminPage from './adminpage.jsx';
+import FacultyPage from './facultypage.jsx';
 
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
           <Route path="/faculty/signin" element={<Facultysigninpage />} />
           <Route path="/student/login" element={<Studentloginpage />} />
           <Route path="/student/signin" element={<Studentsigninpage />} />
+          <Route path="/student" element={<StudentPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/faculty" element={<FacultyPage />} />
         </Routes>
       </Router>
       <Analytics />

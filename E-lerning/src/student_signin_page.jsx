@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const StudentSignupPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -61,6 +63,7 @@ const StudentSignupPage = () => {
         clgsection: '',
         clgstate: ''
       });
+      navigate("/student",{state: data})
     } catch (err) {
       setError(err.message);
     }

@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const FacultySignupPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -41,6 +43,7 @@ const FacultySignupPage = () => {
       if (!response.ok) {
         throw new Error(data.error || 'Signup failed');
       }
+      
 
       setMessage(data.message);
       setFormData({
@@ -53,9 +56,12 @@ const FacultySignupPage = () => {
         specialization: '',
         rating: ''
       });
+      navigate("/faculty",{state: data})
+      
     } catch (err) {
       setError(err.message);
     }
+    
   };
 
   return (
