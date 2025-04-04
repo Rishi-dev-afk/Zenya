@@ -11,7 +11,7 @@ export default function Dashbord() {
   const userData = location.state || {};
   console.log(userData.admindata.id)
   const adminId = userData.admindata.id;
-  const [stats, setStats] = useState({ student_count: 0, faculty_count: 0 });
+  const [stats, setStats] = useState({ student_count: 0, faculty_count: 0, course_count: 0 });
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ useEffect(() => {
 
   console.log(courses);
  
-console.log(stats.student_count, stats.faculty_count);
+console.log(stats.student_count, stats.faculty_count , stats.course_count);
 
     return (
         <>
@@ -65,7 +65,7 @@ console.log(stats.student_count, stats.faculty_count);
                 </div>
                 <div className="totalstudent">
                     <p>Active courses</p>
-                    <h3>0</h3>
+                    <h3>{stats.course_count}</h3>
                 </div>
             </div>
             <div className="dashbord__container">
