@@ -48,7 +48,7 @@ app.get('/api/admin/:adminId/stats', async (req, res) => {
         });
     } catch (err) {
         console.error('❌ Error fetching stats:', err.message);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).json({ error: 'Internal Server Error', error: err });
     }
 });
 
