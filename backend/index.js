@@ -2,6 +2,9 @@ const express = require('express');
 let PORT = 8080
 const app = express();
 const path = require('path');
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json()); 
