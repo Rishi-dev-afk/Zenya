@@ -17,6 +17,7 @@ const adminSign = require("./routes/adminsign");
 const studentLogin = require("./routes/studentlogin");
 const facultyLogin = require("./routes/facultyloginpage");  
 const adminLogin = require("./routes/adminlogin");
+const addCourse = require("./routes/addcours");
 
 app.use("/api", studentSign);
 app.use("/api", facultySign);
@@ -24,6 +25,7 @@ app.use("/api", adminSign);
 app.use("/api", studentLogin);
 app.use("/api", facultyLogin);
 app.use("/api", adminLogin);
+app.use("/api", addCourse);
 
 app.get('/api/admin/:adminId/stats', async (req, res) => {
     const { adminId } = req.params;

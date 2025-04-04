@@ -13,7 +13,7 @@ export default function AdminPage() {
     return (
         <div className="admin-page">
             <Sidebar setActiveTab={setActiveTab} />
-            <Contant activeTab={activeTab} />
+            <Contant activeTab={activeTab} adminId={userData}/>
         </div>
     );
 }

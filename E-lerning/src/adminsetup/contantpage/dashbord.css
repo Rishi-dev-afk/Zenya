@@ -25,3 +25,30 @@
     color: white;
     font-size: medium;
 }
+
+.dashbord__container__data{
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+}
+
+.totalstudent{
+    height:7rem ;
+    width: 16rem;
+    margin: 0rem 1.2rem;
+    background-color: rgba(227, 227, 227, 0.779);
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.totalstudent p{
+    position: relative;
+    left: -3rem;
+    color: #7a7777d4;
+}
+
+.totalstudent h3{
+    position: relative;
+    left: -5rem;
+    color: #6A0DAD;
+}
