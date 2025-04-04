@@ -2,9 +2,10 @@ import './dashbord.css';
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 
 export default function Dashbord() {
+    const navigate = useNavigate();
   
   const location = useLocation();
   const userData = location.state || {};
@@ -58,7 +59,7 @@ console.log(stats.student_count, stats.faculty_count);
                 <h3>
                     cours Mangment
                 </h3>
-                <div className="newanocment" onClick={() => window.location.href = `/course/${adminId}`}>
+                <div className="newanocment" onClick={() => navigate(`/course/${adminId}`, {state: userData})}>
                     <h3>+ Add New Cours</h3>
                 </div>
             </div>   

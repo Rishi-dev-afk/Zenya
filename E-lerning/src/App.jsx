@@ -20,8 +20,7 @@ import CourseForm from './addingcours.jsx';
 function App() {
 
   return (
-    <> 
-      <Router>
+    <> <Router>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/admin/login" element={<AdminLoginPage />} />
@@ -34,6 +33,7 @@ function App() {
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/faculty" element={<FacultyPage />} />
           <Route path="/course/:id" element={<CourseForm />} />
+
         </Routes>
       </Router>
       <Analytics />

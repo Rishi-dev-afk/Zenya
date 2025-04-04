@@ -27,6 +27,23 @@ app.use("/api", facultyLogin);
 app.use("/api", adminLogin);
 app.use("/api", addCourse);
 
+// GET courses by admin ID
+router.get('/courses/:adminId', async (req, res) => {
+  const { adminId } = req.params;
+
+  try {
+    const result = await pool.query(
+      'SELECT * FROM courses WHERE admin_id = $1 ORDER BY id DESC',
+      [adminId]
+    );
+    res.status(200).json({ courses: result.rows });
+  } catch (err) {
+    console.error("❌ Error fetching courses by admin:", err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
 app.get('/api/admin/:adminId/faculties', async (req, res) => {
     const { adminId } = req.params;
   
