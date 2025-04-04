@@ -58,7 +58,7 @@ console.log(stats.student_count, stats.faculty_count);
                 <h3>
                     cours Mangment
                 </h3>
-                <div className="newanocment">
+                <div className="newanocment" onClick={() => window.location.href = `/course/${adminId}`}>
                     <h3>+ Add New Cours</h3>
                 </div>
             </div>   

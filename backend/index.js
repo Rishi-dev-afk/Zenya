@@ -27,6 +27,25 @@ app.use("/api", facultyLogin);
 app.use("/api", adminLogin);
 app.use("/api", addCourse);
 
+app.get('/api/admin/:adminId/faculties', async (req, res) => {
+    const { adminId } = req.params;
+  
+    try {
+      const result = await pool.query(
+        'SELECT id, name FROM faculty WHERE admin_id = $1',
+        [adminId]
+      );
+  
+      res.status(200).json({
+        admin_id: adminId,
+        faculties: result.rows, // array of { id, name }
+      });
+    } catch (err) {
+      console.error('❌ Error fetching faculty list:', err.message);
+      res.status(500).json({ error: 'Internal Server Error', error: err });
+    }
+  });
+
 app.get('/api/admin/:adminId/stats', async (req, res) => {
     const { adminId } = req.params;
 
