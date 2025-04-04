@@ -3,6 +3,7 @@ let PORT = 8080
 const app = express();
 const path = require('path');
 const cors = require('cors');
+const pool = require("./config/db");
 
 app.use(cors());
 
