@@ -18,6 +18,7 @@ const studentLogin = require("./routes/studentlogin");
 const facultyLogin = require("./routes/facultyloginpage");  
 const adminLogin = require("./routes/adminlogin");
 const addCourse = require("./routes/addcours");
+const courseData = require("./routes/coursedata");
 
 app.use("/api", studentSign);
 app.use("/api", facultySign);
@@ -26,6 +27,7 @@ app.use("/api", studentLogin);
 app.use("/api", facultyLogin);
 app.use("/api", adminLogin);
 app.use("/api", addCourse);
+app.use("/api", courseData);
 
 // GET courses by admin ID
 app.get('api/course/courses/:adminId', async (req, res) => {
