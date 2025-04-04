@@ -40,7 +40,7 @@ const AdminLogin = () => {
         setAdminData(null);
       }
 
-      navigate("/student",{state: data})
+      navigate("/admin",{state: data})
     } catch (err) {
       console.error('Login error:', err);
       setMessage('Something went wrong. Please try again later.');

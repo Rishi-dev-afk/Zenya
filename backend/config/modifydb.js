@@ -6,34 +6,37 @@ const pool = new Pool({
     ssl: { rejectUnauthorized: false }, // Required for cloud databases
 });
 
-console.log("➡️ Starting Database Initialization...");
+console.log("➡️ Starting Database Update...");
 
-const createTable = async () => {
+const updateTables = async () => {
     try {
         console.log("📡 Connecting to DB...");
         await pool.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
 
-        console.log("🔧 Creating users table...");
+        // ✅ Add admin_id column to student (if not exists)
+        console.log("🛠️ Adding admin_id to student table...");
         await pool.query(`
-            CREATE TABLE IF NOT EXISTS course (
-                id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-                name VARCHAR(255) NOT NULL,
-                course_description TEXT NOT NULL,
-                course_duration VARCHAR(255) NOT NULL,
-                course_fee VARCHAR(255) NOT NULL,
-                course_rating INTEGER NOT NULL,
-                course_image TEXT NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            );
+            ALTER TABLE student
+            ADD COLUMN IF NOT EXISTS admin_id UUID;
         `);
-        console.log("✅ admin table created!");
+        console.log("✅ admin_id column added to student!");
+
+        // ✅ Add admin_id column to faculty (if not exists)
+        console.log("🛠️ Adding admin_id to faculty table...");
+        await pool.query(`
+            ALTER TABLE faculty
+            ADD COLUMN IF NOT EXISTS admin_id UUID;
+        `);
+        console.log("✅ admin_id column added to faculty!");
+
+        console.log("✅ Database update complete!");
 
     } catch (err) {
-        console.error("❌ Error initializing database:", err.message);
+        console.error("❌ Error updating database:", err.message);
     } finally {
         await pool.end();
         console.log("🔌 Database connection closed.");
     }
 };
 
-createTable();
+updateTables();

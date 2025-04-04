@@ -24,6 +24,34 @@ app.use("/api", studentLogin);
 app.use("/api", facultyLogin);
 app.use("/api", adminLogin);
 
+app.get('/api/admin/:adminId/stats', async (req, res) => {
+    const { adminId } = req.params;
+
+    try {
+        const studentQuery = await pool.query(
+            'SELECT COUNT(*) FROM student WHERE admin_id = $1',
+            [adminId]
+        );
+
+        const facultyQuery = await pool.query(
+            'SELECT COUNT(*) FROM faculty WHERE admin_id = $1',
+            [adminId]
+        );
+
+        const studentCount = parseInt(studentQuery.rows[0].count, 10);
+        const facultyCount = parseInt(facultyQuery.rows[0].count, 10);
+
+        res.json({
+            admin_id: adminId,
+            student_count: studentCount,
+            faculty_count: facultyCount
+        });
+    } catch (err) {
+        console.error('❌ Error fetching stats:', err.message);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server started on ${PORT}`);
 });
