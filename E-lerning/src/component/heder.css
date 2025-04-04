@@ -3,38 +3,52 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 90vw;
+    width: 100vw;
     height: 10rem;
     position: relative;
+    left:0%;
     top: 0%;
-    background-color: rgba(128, 128, 128, 0.402);
+    background-color: #6A0DAD;
 }
 
-.headerlogin div{
-    padding: 0%;
-    margin: 1rem;
-    width: 4rem;
-    height: 1.5rem;
-    position: relative;
+
+.headerlogin .logodivset{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-}
-
-.headerlogin div button{
-    background: transparent;
-    color: black;
-    transition: all 0.5s ease-in-out;
+    width: 30vw;
+    height: 10vh;
+    margin: 0%;
     padding: 0%;
-    border: 0%;
-    font-size: medium;
+    flex: 1;
 }
 
-loginbtn1{
-    background: transparent;
-    color: black;
-    border: 0.5px solid black;
-    padding: 0.5rem 1rem;
+.headerlogin .logodivset .logoimg{
+    width: 30vw;
+    height: 20vh;
+    position: relative;
+    top: 10%
+}
+
+
+.loginbtn{
+    font-size: larger;
+    font-weight: bold;
+    border: ipx solid white;
     border-radius: 1rem;
-    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    margin: 0rem 2rem;
+}
+
+.loginbtn1{
+    background-color: aliceblue;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin: 0rem 2rem;
 }
 
 
@@ -51,12 +65,23 @@ loginbtn1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
     margin-bottom: 5rem;
     top: 0%;
 }
-
-.loginform div{
+.loginform hr{
+    color: black;
+    margin: 0%;
+    width: 100%;
     padding: 0%;
-    border: 0.5px solid black;
+}
+
+
+.loginform dev{
+    margin: 0%;
+    padding: 0%;
+}
+
+
+.signupdiv{
+    right: 10%;
 }

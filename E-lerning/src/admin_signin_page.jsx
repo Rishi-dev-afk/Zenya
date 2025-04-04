@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdminsigninPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -48,6 +50,7 @@ const AdminsigninPage = () => {
       } else {
         setError(data.error || "Signup failed");
       }
+      navigate("/admin",{state: data})
     } catch (err) {
       console.error("Signup error:", err);
       setError("Something went wrong.");
