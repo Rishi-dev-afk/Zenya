@@ -1,87 +1,95 @@
-.headerlogin{
+/* Header Container */
+.headerlogin {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
-    height: 10rem;
-    position: relative;
-    left:0%;
-    top: 0%;
-    background-color: #6A0DAD;
-}
-
-
-.headerlogin .logodivset{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 30vw;
-    height: 10vh;
-    margin: 0%;
-    padding: 0%;
-    flex: 1;
-}
-
-.headerlogin .logodivset .logoimg{
-    width: 30vw;
-    height: 20vh;
-    position: relative;
-    top: 10%
-}
-
-
-.loginbtn{
-    font-size: larger;
-    font-weight: bold;
-    border: ipx solid white;
-    border-radius: 1rem;
-    cursor: pointer;
-    color: white;
-    margin: 0rem 2rem;
-}
-
-.loginbtn1{
-    background-color: aliceblue;
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    margin: 0rem 2rem;
-}
-
-
-.logoimg{
-    width: 100px;
-    height: 100px;
-    border-radius: 1rem;
-    position: relative;
-    top:1rem
-}
-
-.loginform{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 5rem;
-    top: 0%;
-}
-.loginform hr{
-    color: black;
-    margin: 0%;
     width: 100%;
-    padding: 0%;
+    height: 5rem;
+    padding: 0 2rem;
+    background-color: #6A0DAD;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
-
-.loginform dev{
-    margin: 0%;
-    padding: 0%;
+/* Bigger Logo */
+.logoimg {
+    width: 160px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
 }
 
+/* Move Login & Signup to the Right */
+.auth-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Ensures space between buttons */
+    margin-left: auto;
+    margin-right: 3rem; /* Extra space for responsiveness */
+}
 
-.signupdiv{
-    right: 10%;
+/* Buttons */
+.headerlogin button {
+    background: transparent;
+    color: #FF6B6B;
+    border: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+/* Login & Signup Buttons */
+.loginbtn1 {
+    background: white;
+    color: #6A0DAD;
+    border: 2px solid white;
+    border-radius: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* 🔹 Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .logoimg {
+        width: 140px; /* Adjust logo size */
+    }
+    .auth-container {
+        margin-right: 2rem; /* Reduce right margin */
+        gap: 1.2rem; /* Reduce button gap */
+    }
+    .headerlogin button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logoimg {
+        width: 120px;
+    }
+    .auth-container {
+        margin-right: 1.5rem;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logoimg {
+        width: 100px;
+    }
+    .auth-container {
+        flex-direction: column;
+        margin-right: 1rem;
+        gap: 0.5rem;
+    }
+    .headerlogin {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
 }

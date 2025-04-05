@@ -6,34 +6,46 @@ const pool = new Pool({
     ssl: { rejectUnauthorized: false }, // Required for cloud databases
 });
 
-console.log("➡️ Starting Database Initialization...");
+console.log("➡️ Starting Database Update...");
 
-const createTable = async () => {
+const updateTables = async () => {
     try {
         console.log("📡 Connecting to DB...");
         await pool.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
 
-        console.log("🔧 Creating users table...");
+        // ✅ Create courses table
+        console.log("📚 Creating courses table...");
         await pool.query(`
-            CREATE TABLE IF NOT EXISTS course (
+            CREATE TABLE IF NOT EXISTS courses (
                 id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                 name VARCHAR(255) NOT NULL,
-                course_description TEXT NOT NULL,
-                course_duration VARCHAR(255) NOT NULL,
-                course_fee VARCHAR(255) NOT NULL,
-                course_rating INTEGER NOT NULL,
-                course_image TEXT NOT NULL,
+                description TEXT,
+                duration VARCHAR(100),
+                fee VARCHAR(100),
+                rating INTEGER,
+                course VARCHAR(255),
+                faculty_id UUID REFERENCES faculty(id) ON DELETE SET NULL,
+                faculty_name VARCHAR(255),
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         `);
-        console.log("✅ admin table created!");
+        console.log("✅ courses table created!");
 
+        // ✅ Add course_id column to student table
+        console.log("🔗 Adding course_id to student table...");
+        await pool.query(`
+            ALTER TABLE student
+            ADD COLUMN IF NOT EXISTS course_id UUID REFERENCES courses(id) ON DELETE SET NULL;
+        `);
+        console.log("✅ course_id column added to student!");
+
+        console.log("✅ Database update complete!");
     } catch (err) {
-        console.error("❌ Error initializing database:", err.message);
+        console.error("❌ Error updating database:", err.message);
     } finally {
         await pool.end();
         console.log("🔌 Database connection closed.");
     }
 };
 
-createTable();
+updateTables();

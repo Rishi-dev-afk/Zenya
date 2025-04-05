@@ -1,14 +1,19 @@
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import './adminpage.css';
+
+import Sidebar from "./adminsetup/sidebar";
+import Contant from "./adminsetup/contant"; 
 
 export default function AdminPage() {
     const location = useLocation();
     const userData = location.state || {}; 
+    const [activeTab, setActiveTab] = useState("dashboard");
     console.log(userData)
     return (
         <div className="admin-page">
-            <h1>Admin Page</h1>
-            <p>Welcome to the admin page!</p>
-            <p>Here you can manage users, courses, and other administrative tasks.</p>
+            <Sidebar setActiveTab={setActiveTab} />
+            <Contant activeTab={activeTab} adminId={userData}/>
         </div>
     );
 }

@@ -1,0 +1,39 @@
+
+body{
+    margin-top: 0px;
+}
+h2{
+    color: #6A0DAD;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+input {
+    margin-top: 10px;
+    width: 300px; 
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    color: #6A0DAD;
+    font-size: larger;
+}
+
+button {
+    margin-top: 10px;
+    width: 300px; 
+    height: 50px;
+    background-color: #6A0DAD;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+ 
+.btn{
+    background-color: #6A0DAD;
+    color: white;
+}
