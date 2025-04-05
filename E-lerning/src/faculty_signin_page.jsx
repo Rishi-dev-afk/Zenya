@@ -56,6 +56,7 @@ const FacultySignupPage = () => {
         specialization: '',
         rating: ''
       });
+      
       navigate("/faculty",{state: data})
       
     } catch (err) {
