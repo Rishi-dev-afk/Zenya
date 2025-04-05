@@ -23,12 +23,12 @@ function AppContent() {
   // Hide Header on login/signin + dashboard pages
   const noHeaderPages = new Set([
     '/',
-    '/admin/login',
-    '/admin/signin',
-    '/faculty/login',
-    '/faculty/signin',
-    '/student/login',
-    '/student/signin',
+    // '/admin/login',
+    // '/admin/signin',
+    // '/faculty/login',
+    // '/faculty/signin',
+    // '/student/login',
+    // '/student/signin',
     '/student',
     '/admin',
     '/faculty',

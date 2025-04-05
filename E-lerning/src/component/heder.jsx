@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useState } from "react";
+import './heder.css'; // Import your CSS file for styling
 
 
 function Header() {
@@ -14,9 +15,8 @@ function Header() {
     const roles = ["admin", "faculty", "student"];
   
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light px-4 py-3 shadow-sm position-relative">
-  {/*       
-        /*<Link className="navbar-brand fw-bold me-4" to="/"></Link> */ }
+      <nav className=" navsetbar navbar navbar-expand-lg navbar-light bg-light px-4 py-3 shadow-sm position-relative"
+        >
   
         {}
         <ul className="navbar-nav d-flex flex-row gap-4">

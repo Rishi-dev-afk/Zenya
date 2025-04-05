@@ -42,6 +42,9 @@ const FacultyLogin = () => {
       } else {
         setError(data.error || "Login failed");
       }
+
+      console.log(data);
+
       navigate("/faculty",{state: data})
     } catch (err) {
       console.error("Login error:", err);

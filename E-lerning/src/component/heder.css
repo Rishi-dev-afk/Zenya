@@ -93,3 +93,7 @@
         padding: 1rem;
     }
 }
+
+.navsetbar{
+    position: fixed;
+}
