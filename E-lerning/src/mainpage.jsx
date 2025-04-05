@@ -11,7 +11,7 @@ export default function MainPage() {
            <div className="mainpagestyle">
             <br />
              <h2>Bharat’s Trusted & Affordable Educational Platform</h2>
-             <p>Unlock your potential by signing up with <b>ZYNPEG</b>-The most affordable learning solution</p>
+             <p>Unlock your potential by signing up with <b>Zenya</b>-The most affordable learning solution</p>
              <p><b>Become lifelong learners with India's best teachers,<br />
              engaging video lessons and personalised learning journeys</b></p>
              <div className="edudev">
