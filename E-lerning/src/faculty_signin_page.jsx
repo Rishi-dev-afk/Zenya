@@ -63,28 +63,47 @@ const FacultySignupPage = () => {
     }
     
   };
-
   return (
-    <div>
-      <h2>Faculty Signup</h2>
+    <div className="con">
+      {/* Left Side: Signup Form */}
+      <div className="frst">
+        <div className="form-container">
+          <h2>Faculty Signup</h2>
+          {message && <p className="success-message">{message}</p>}
+          {error && <p className="error-message">{error}</p>}
+          <form>
+  
+  <div className="input-group mb-3">
+    <input type="email" className="form-control" placeholder="Email" />
+    <span className="input-group-text">@example.com</span>
+  </div>
 
-      <form onSubmit={handleSubmit}>
-        <input name="email" value={formData.email} onChange={handleChange} placeholder="Email" required />
-        <input name="password" value={formData.password} onChange={handleChange} placeholder="Password" type="password" required />
-        <input name="name" value={formData.name} onChange={handleChange} placeholder="Name" required />
-        <input name="age" value={formData.age} onChange={handleChange} placeholder="Age" type="number" required />
-        <input name="clgname" value={formData.clgname} onChange={handleChange} placeholder="College Name" />
-        <input name="experience" value={formData.experience} onChange={handleChange} placeholder="Experience (years)" />
-        <input name="specialization" value={formData.specialization} onChange={handleChange} placeholder="Specialization" />
-        <input name="rating" value={formData.rating} onChange={handleChange} placeholder="Rating (0-5)" />
+  <div className="input-group mb-3">
+    <span className="input-group-text">Age</span>
+    <input type="number" className="form-control" />
+  </div>
 
-        <button type="submit">Sign Up</button>
-      </form>
+  <div className="input-group mb-3">
+    <span className="input-group-text">Password</span>
+    <input type="password" className="form-control" />
+  </div>
+  <div className="input-group mb-3">
+  <span className="input-group-text" id="inputGroup-sizing-default">  College name</span>
+  <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+</div>
+<div className="input-group mb-3">
+    <span className="input-group-text">experience</span>
+    <input type="number" className="form-control"/>
+  </div>
+ 
+  <button className="btn ">Submit</button>
+</form>
 
-      {message && <p style={{ color: 'green' }}>{message}</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+        </div>
+      </div>
     </div>
   );
+  
 };
 
 export default FacultySignupPage;

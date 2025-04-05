@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './admin_signin_page.css';
 
 const AdminsigninPage = () => {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ const AdminsigninPage = () => {
       } else {
         setError(data.error || "Signup failed");
       }
-      navigate("/admin",{state: data})
+      navigate("/admin", { state: data });
     } catch (err) {
       console.error("Signup error:", err);
       setError("Something went wrong.");
@@ -58,53 +59,39 @@ const AdminsigninPage = () => {
   };
 
   return (
-    <div>
-      <h2>Admin Signup</h2>
-      {message && <p>{message}</p>}
-      {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          placeholder="Username (letters & numbers)"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="number"
-          name="age"
-          placeholder="Age"
-          value={formData.age}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
+    <div className="con">
+      {/* Left Side: Signup Form */}
+      <div className="frst">
+        <div className="form-container">
+          <h2>Admin Signup</h2>
+          {message && <p className="success-message">{message}</p>}
+          {error && <p className="error-message">{error}</p>}
+          <form>
+  <div className="input-group mb-3">
+    <span className="input-group-text">@</span>
+    <input type="text" className="form-control" placeholder="Username" />
+  </div>
+
+  <div className="input-group mb-3">
+    <input type="email" className="form-control" placeholder="Email" />
+    <span className="input-group-text">@example.com</span>
+  </div>
+
+  <div className="input-group mb-3">
+    <span className="input-group-text">Age</span>
+    <input type="number" className="form-control" />
+  </div>
+
+  <div className="input-group mb-3">
+    <span className="input-group-text">Password</span>
+    <input type="password" className="form-control" />
+  </div>
+
+  <button className="btn ">Submit</button>
+</form>
+
+        </div>
+      </div>
     </div>
   );
 };

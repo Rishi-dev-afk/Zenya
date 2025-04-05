@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import './admin_signin_page.css'; // Using the same CSS file
 
 const StudentSignupPage = () => {
   const navigate = useNavigate();
@@ -31,8 +32,7 @@ const StudentSignupPage = () => {
     e.preventDefault();
     setMessage('');
     setError('');
-    
-     console.log(formData); // Log the form data to check its structure
+
     try {
       const response = await fetch('https://zenya.onrender.com/api/student/signin', {
         method: 'POST',
@@ -43,7 +43,6 @@ const StudentSignupPage = () => {
       });
 
       const data = await response.json();
-      console.log(data); // Log the response data to check its structure
 
       if (!response.ok) {
         throw new Error(data.error || 'Signup failed');
@@ -63,36 +62,60 @@ const StudentSignupPage = () => {
         clgsection: '',
         clgstate: ''
       });
-      navigate("/student",{state: data})
+      navigate("/student", { state: data });
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div>
-      <h2>Student Signup</h2>
+    <div className="con">
+      {/* Left Side: Signup Form */}
+      <div className="frst">
+        <div className="form-container">
+          <h2>Student Signup</h2>
+          {message && <p className="success-message">{message}</p>}
+          {error && <p className="error-message">{error}</p>}
+          <form>
+  <div className="input-group mb-3">
+    <span className="input-group-text">@</span>
+    <input type="text" className="form-control" placeholder="Username" />
+  </div>
 
-      <form onSubmit={handleSubmit}>
-        <input name="email" value={formData.email} onChange={handleChange} placeholder="Email" required />
-        <input name="password" type="password" value={formData.password} onChange={handleChange} placeholder="Password" required />
-        <input name="name" value={formData.name} onChange={handleChange} placeholder="Name" required />
-        <input name="age" type="number" value={formData.age} onChange={handleChange} placeholder="Age" required />
-        <input name="clgname" value={formData.clgname} onChange={handleChange} placeholder="College Name" />
-        <input name="clgrollno" value={formData.clgrollno} onChange={handleChange} placeholder="Roll Number" />
-        <input name="clgbranch" value={formData.clgbranch} onChange={handleChange} placeholder="Branch" />
-        <input name="clgyear" value={formData.clgyear} onChange={handleChange} placeholder="Year" />
-        <input name="clgsem" value={formData.clgsem} onChange={handleChange} placeholder="Semester" />
-        <input name="clgsection" value={formData.clgsection} onChange={handleChange} placeholder="Section" />
-        <input name="clgstate" value={formData.clgstate} onChange={handleChange} placeholder="State" />
+  <div className="input-group mb-3">
+    <input type="email" className="form-control" placeholder="Email" />
+    <span className="input-group-text">@example.com</span>
+  </div>
 
-        <button type="submit">Sign Up</button>
-      </form>
+  <div className="input-group mb-3">
+    <span className="input-group-text">Age</span>
+    <input type="number" className="form-control" />
+  </div>
 
-      {message && <p style={{ color: 'green' }}>{message}</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+  <div className="input-group mb-3">
+    <span className="input-group-text">Password</span>
+    <input type="password" className="form-control" />
+  </div>
+  <div className="input-group mb-3">
+  <span className="input-group-text" id="inputGroup-sizing-default">  College name</span>
+  <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+</div>
+<div className="input-group mb-3">
+    <span className="input-group-text">Semester</span>
+    <input type="number" className="form-control" max="10"/>
+  </div>
+  <div className="input-group mb-3">
+  <span className="input-group-text" id="inputGroup-sizing-default">  State</span>
+  <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+</div>
+  <button className="btn ">Submit</button>
+</form>
+
+        </div>
+      </div>
     </div>
   );
+  
 };
 
 export default StudentSignupPage;
