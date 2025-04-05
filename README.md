@@ -1,15 +1,12 @@
-Sure Dibya! Here's a complete and beginner-friendly `README.md` file you can use for your GitHub repo (like [Zenya](https://github.com/Rishi-dev-afk/Zenya)) which includes how to **clone**, **install**, **run**, **pull**, **push**, etc. for a **Node.js + React** based login system for admin, student, and faculty.
+### ✅ README.md
+---
+
+Zenya - E-Learning Platform
+
+A simple Node.js + PostgreSQL + React-based E-Learning Platform offering courses and stats, with a login system for Admins, Students, and Faculty with secure password hashing using bcrypt.
 
 ---
 
-### ✅ `README.md`
-
-```md
-# Zenya - Login System
-
-A simple Node.js + PostgreSQL + React-based login system for Admins, Students, and Faculty with secure password hashing using bcrypt.
-
----
 
 ## 🛠️ Tech Stack
 
@@ -19,10 +16,9 @@ A simple Node.js + PostgreSQL + React-based login system for Admins, Students, a
 - Database Driver: pg
 
 ---
-
 ## 📁 Project Structure
-
 ```
+
 /backend
   ├── routes
   │    ├── admin.js
@@ -38,11 +34,12 @@ A simple Node.js + PostgreSQL + React-based login system for Admins, Students, a
   │    ├── FacultyLogin.jsx
   │    └── StudentLogin.jsx
   └── App.js
+
+
 ```
-
 ---
-
 ## 🚀 Getting Started
+
 
 ### 1. Clone the repository
 
@@ -151,14 +148,12 @@ POST /student/login
 
 - [@Rishi-dev-afk](https://github.com/Rishi-dev-afk)
 - [@Dibya](https://github.com/Dibyajyoti1515)
+- [@Misbah](https://github.com/pinkman)
+- [@Sudeep](https://github.com/dashsudeep)
 
 ---
-
 ## 📄 License
 
 This project is licensed under the MIT License.
-```
 
 ---
-
-Let me know your GitHub username and final project name if you'd like me to auto-fill it into the README for you! Want me to write a quick description for your repo too?
