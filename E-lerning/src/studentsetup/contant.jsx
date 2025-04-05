@@ -4,7 +4,7 @@ import './contant.css'
 import Dashboard from "./contantpage/dashbord.jsx";
 import Aboutvideo from "./contantpage/aboutvideo.jsx";
 import Aboutstudent from "./contantpage/aboutstudent.jsx";
-import Aboutteacher from "./contantpage/aboutteacher.jsx";
+import Live from "./contantpage/aboutteacher.jsx";
 import Aboutquestion from "./contantpage/aboutquestion.jsx";
 import { useLocation } from "react-router-dom";
 
@@ -19,8 +19,8 @@ const Content = ({ activeTab }) => {
         return <Dashboard adminId={userData.admindata.id} />;
       case "student":
         return < Aboutstudent/>;
-      case "teacher":
-        return <Aboutteacher />;
+      case "live":
+        return <Live />;
       case "question":
         return <Aboutquestion />;
       case "video":

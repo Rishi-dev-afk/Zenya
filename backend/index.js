@@ -22,6 +22,10 @@ const courseData = require("./routes/coursedata");
 const facultyUnsignId = require("./routes/faculityunsignid");
 const UnassignedFaculty = require("./routes/UnassignedFaculty");
 const findStudentData = require("./routes/findstudentdata");
+const liveClassRoutes = require('./routes/liveClassRoutes'); // rename as per your file
+
+app.use(express.json());
+app.use(liveClassRoutes);
 
 app.use("/api", studentSign);
 app.use("/api", facultySign);
@@ -61,6 +65,7 @@ app.get('/api/teacher/:teacherId/stats', async (req, res) => {
           student_count: studentCount,
           course_count: courseCount,
       });
+      
   } catch (err) {
       console.error('❌ Error fetching teacher stats:', err.message);
       res.status(500).json({ error: 'Internal Server Error', details: err.message });

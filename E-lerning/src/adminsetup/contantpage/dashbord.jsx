@@ -18,7 +18,7 @@ export default function Dashbord() {
     async function fetchStats() {
         try {
             if (adminId) {
-                const res = await axios.get(`https://zenya.onrender.com/api/admin/${adminId}/stats`);
+                const res = await axios.get(`https://zenya.onrender.com/api/teacher/${adminId}/stats`);
                 setStats(res.data);
             }
         } catch (err) {

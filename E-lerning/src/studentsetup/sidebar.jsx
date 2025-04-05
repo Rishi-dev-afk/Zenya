@@ -10,8 +10,8 @@ const Sidebar = ({ setActiveTab }) => {
       <div onClick={() => setActiveTab("student")} className="sidebar-data-setup">
          student
       </div>
-      <div onClick={() => setActiveTab("teacher")} className="sidebar-data-setup">
-        Teacher
+      <div onClick={() => setActiveTab("live")} className="sidebar-data-setup">
+        Live
       </div>
       <div onClick={() => setActiveTab("question")} className="sidebar-data-setup">
       question

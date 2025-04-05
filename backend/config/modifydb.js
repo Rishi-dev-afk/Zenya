@@ -3,49 +3,38 @@ const { Pool } = require("pg");
 
 const pool = new Pool({
     connectionString: "postgresql://postgres:iUUAGNwRyyctjiFulBXiAXZZWBoCZLqH@crossover.proxy.rlwy.net:32115/railway",
-    ssl: { rejectUnauthorized: false }, // Required for cloud databases
+    ssl: { rejectUnauthorized: false },
 });
 
-console.log("➡️ Starting Database Update...");
+console.log("➡️ Starting Live Classes Table Creation...");
 
-const updateTables = async () => {
+const createLiveClassesTable = async () => {
     try {
         console.log("📡 Connecting to DB...");
         await pool.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`);
 
-        // ✅ Create courses table
-        console.log("📚 Creating courses table...");
+        // ✅ Create live_classes table
+        console.log("🎥 Creating live_classes table...");
         await pool.query(`
-            CREATE TABLE IF NOT EXISTS courses (
-                id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-                name VARCHAR(255) NOT NULL,
-                description TEXT,
-                duration VARCHAR(100),
-                fee VARCHAR(100),
-                rating INTEGER,
-                course VARCHAR(255),
-                faculty_id UUID REFERENCES faculty(id) ON DELETE SET NULL,
-                faculty_name VARCHAR(255),
+            CREATE TABLE IF NOT EXISTS live_classes (
+                id SERIAL PRIMARY KEY,
+                class_id UUID NOT NULL DEFAULT uuid_generate_v4() UNIQUE,
+                teacher_id UUID NOT NULL,
+                course_id UUID NOT NULL REFERENCES courses(id) ON DELETE CASCADE,
+                title VARCHAR(255),
+                scheduled_at TIMESTAMP,
+                is_active BOOLEAN DEFAULT TRUE,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         `);
-        console.log("✅ courses table created!");
+        console.log("✅ live_classes table created!");
 
-        // ✅ Add course_id column to student table
-        console.log("🔗 Adding course_id to student table...");
-        await pool.query(`
-            ALTER TABLE student
-            ADD COLUMN IF NOT EXISTS course_id UUID REFERENCES courses(id) ON DELETE SET NULL;
-        `);
-        console.log("✅ course_id column added to student!");
-
-        console.log("✅ Database update complete!");
     } catch (err) {
-        console.error("❌ Error updating database:", err.message);
+        console.error("❌ Error creating live_classes table:", err.message);
     } finally {
         await pool.end();
         console.log("🔌 Database connection closed.");
     }
 };
 
-updateTables();
+createLiveClassesTable();
