@@ -64,51 +64,27 @@ const FacultySignupPage = () => {
     
   };
   return (
-    <div className="con">
-      {/* Left Side: Signup Form */}
-      <div className="frst">
-        <div className="form-container">
-          <h2>Faculty Signup</h2>
-          {message && <p className="success-message">{message}</p>}
-          {error && <p className="error-message">{error}</p>}
-          <form onSubmit={handleSubmit}>
-  <div className="input-group mb-3">
-    <span className="input-group-text">@</span>
-    <input
-      type="text"
-      name="username"
-      className="form-control"
-      placeholder="Username"
-      value={formData.username}
-      onChange={handleChange}
-    />
-  </div>
+        <div className="con">
+              <div className="frst">
+              <div className="form-container">
+              <h2>Faculty Signup</h2>
+              {message && <p className="success-message">{message}</p>}
+              {error && <p className="error-message">{error}</p>}
+              <form onSubmit={handleSubmit}>
 
-  <div className="input-group mb-3">
-    <input
-      type="email"
-      name="email"
-      className="form-control"
-      placeholder="Email"
-      value={formData.email}
-      onChange={handleChange}
-    />
-    <span className="input-group-text">@example.com</span>
-  </div>
+              <div className="input-group mb-3">
+            <input
+              type="email"
+              name="email"
+              className="form-control"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <span className="input-group-text">@example.com</span>
+          </div>
 
-  <div className="input-group mb-3">
-    <span className="input-group-text">Age</span>
-    <input
-      type="number"
-      name="age"
-      className="form-control"
-      placeholder="Age"
-      value={formData.age}
-      onChange={handleChange}
-    />
-  </div>
-
-  <div className="input-group mb-3">
+          <div className="input-group mb-3">
     <span className="input-group-text">Password</span>
     <input
       type="password"
@@ -131,6 +107,73 @@ const FacultySignupPage = () => {
       onChange={handleChange}
     />
   </div>
+  <div className="input-group mb-3">
+    <span className="input-group-text">Experience</span>
+    <input
+      type="number"
+      name="experience"
+      className="form-control"
+      placeholder="experience"
+      value={formData.experience}
+      onChange={handleChange}
+    />
+  </div>
+                <div className="input-group mb-3">
+                  <span className="input-group-text">clgname</span>
+                  <input
+                    type="text"
+                    name="clgname"
+                    className="form-control"
+                    placeholder="clgname"
+                    value={formData.clgname}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="input-group mb-3">
+    <span className="input-group-text">Age</span>
+    <input
+      type="number"
+      name="age"
+      className="form-control"
+      placeholder="Age"
+      value={formData.age}
+      onChange={handleChange}
+    />
+  </div>
+
+
+
+                <div className="input-group mb-3">
+                  <span className="input-group-text">clgname</span>
+                  <input
+                    type="text"
+                    name="specialization"
+                    className="form-control"
+                    placeholder="specialization"
+                    value={formData.specialization}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="input-group mb-3">
+    <span className="input-group-text">Rating: 0-5</span>
+    <input
+      type="number"
+      name="rating"
+      className="form-control"
+      placeholder="Agratinge"
+      value={formData.rating}
+      onChange={handleChange}
+    />
+  </div>
+
+                
+          
+ 
+
+  
+
+ 
 
   <button className="btn btn-primary">Submit</button>
 </form>

@@ -42,7 +42,7 @@ router.post("/faculty/signin", async (req, res) => {
 
     } catch (err) {
         console.error("❌ Error:", err);
-        res.status(500).json({ error: "Internal Server Error." });
+        res.status(500).json({ error: "Internal Server Error.", error: err });
     }
 });
 
