@@ -76,39 +76,132 @@ const StudentSignupPage = () => {
           <h2>Student Signup</h2>
           {message && <p className="success-message">{message}</p>}
           {error && <p className="error-message">{error}</p>}
-          <form>
+          <form onSubmit={handleSubmit}>
   <div className="input-group mb-3">
     <span className="input-group-text">@</span>
-    <input type="text" className="form-control" placeholder="Username" />
+    <input
+      type="text"
+      name="name"
+      className="form-control"
+      placeholder="Full Name"
+      value={formData.name}
+      onChange={handleChange}
+    />
   </div>
 
   <div className="input-group mb-3">
-    <input type="email" className="form-control" placeholder="Email" />
+    <input
+      type="email"
+      name="email"
+      className="form-control"
+      placeholder="Email"
+      value={formData.email}
+      onChange={handleChange}
+    />
     <span className="input-group-text">@example.com</span>
   </div>
 
   <div className="input-group mb-3">
     <span className="input-group-text">Age</span>
-    <input type="number" className="form-control" />
+    <input
+      type="number"
+      name="age"
+      className="form-control"
+      value={formData.age}
+      onChange={handleChange}
+    />
   </div>
 
   <div className="input-group mb-3">
     <span className="input-group-text">Password</span>
-    <input type="password" className="form-control" />
+    <input
+      type="password"
+      name="password"
+      className="form-control"
+      value={formData.password}
+      onChange={handleChange}
+    />
   </div>
+
   <div className="input-group mb-3">
-  <span className="input-group-text" id="inputGroup-sizing-default">  College name</span>
-  <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-</div>
-<div className="input-group mb-3">
+    <span className="input-group-text">College Name</span>
+    <input
+      type="text"
+      name="clgname"
+      className="form-control"
+      value={formData.clgname}
+      onChange={handleChange}
+    />
+  </div>
+
+  <div className="input-group mb-3">
+    <span className="input-group-text">Roll No</span>
+    <input
+      type="text"
+      name="clgrollno"
+      className="form-control"
+      value={formData.clgrollno}
+      onChange={handleChange}
+    />
+  </div>
+
+  <div className="input-group mb-3">
+    <span className="input-group-text">Branch</span>
+    <input
+      type="text"
+      name="clgbranch"
+      className="form-control"
+      value={formData.clgbranch}
+      onChange={handleChange}
+    />
+  </div>
+
+  <div className="input-group mb-3">
+    <span className="input-group-text">Year</span>
+    <input
+      type="number"
+      name="clgyear"
+      className="form-control"
+      value={formData.clgyear}
+      onChange={handleChange}
+    />
+  </div>
+
+  <div className="input-group mb-3">
     <span className="input-group-text">Semester</span>
-    <input type="number" className="form-control" max="10"/>
+    <input
+      type="number"
+      name="clgsem"
+      className="form-control"
+      max="10"
+      value={formData.clgsem}
+      onChange={handleChange}
+    />
   </div>
+
   <div className="input-group mb-3">
-  <span className="input-group-text" id="inputGroup-sizing-default">  State</span>
-  <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-</div>
-  <button className="btn ">Submit</button>
+    <span className="input-group-text">Section</span>
+    <input
+      type="text"
+      name="clgsection"
+      className="form-control"
+      value={formData.clgsection}
+      onChange={handleChange}
+    />
+  </div>
+
+  <div className="input-group mb-3">
+    <span className="input-group-text">State</span>
+    <input
+      type="text"
+      name="clgstate"
+      className="form-control"
+      value={formData.clgstate}
+      onChange={handleChange}
+    />
+  </div>
+
+  <button type="submit" className="btn btn-primary">Submit</button>
 </form>
 
         </div>

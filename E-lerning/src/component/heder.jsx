@@ -1,52 +1,45 @@
-import './heder.css';
-import logo from "../assets/logo2.jpg";
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Heder() {
-    const [tracklogin, settracklogin] = useState(false);
-    const [tracksignup, settracksignup] = useState(false);
-    const navigate = useNavigate();
+import { useState } from "react";
 
+
+function Header() {
+    const [dropdown, setDropdown] = useState(null);
+  
+    const toggleDropdown = (role) => {
+      setDropdown(dropdown === role ? null : role);
+    };
+  
+    const roles = ["admin", "faculty", "student"];
+  
     return (
-        <div className='headerlogin'>
-            {/* Bigger Logo */}
-            <div>
-                <img src={logo} alt="Logo" className='logoimg' />
-            </div>
-
-            {/* Move Login & Signup to the Right */}
-            <div className='auth-container'>
-                {/* Login */}
-                <div className='logindropdown'>
-                    <button onClick={() => settracklogin(!tracklogin)} className={tracklogin ? 'loginbtn1' : 'loginbtn'}>
-                        {tracklogin ? '' : 'Login'}
-                    </button>
-                    {tracklogin && (
-                        <div className='loginform'>
-                            <div onClick={() => navigate("/admin/login")}>Admin</div>
-                            <div onClick={() => navigate("/student/login")}>Student</div>
-                            <div onClick={() => navigate("/faculty/login")}>Faculty</div>
-                            <div onClick={() => settracklogin(false)}>⊼</div>
-                        </div>
-                    )}
-                </div>
-
-                {/* Signup */}
-                <div className='logindropdown'>
-                    <button onClick={() => settracksignup(!tracksignup)} className={tracksignup ? 'loginbtn1' : 'loginbtn'}>
-                        {tracksignup ? '' : 'Sign Up'}
-                    </button>
-                    {tracksignup && (
-                        <div className='loginform'>
-                            <div onClick={() => navigate("/admin/signup")}>Admin</div>
-                            <div onClick={() => navigate("/student/signup")}>Student</div>
-                            <div onClick={() => navigate("/faculty/signup")}>Faculty</div>
-                            <div onClick={() => settracksignup(false)}>⊼</div>
-                        </div>
-                    )}
-                </div>
-            </div>
-        </div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light px-4 py-3 shadow-sm position-relative">
+  {/*       
+        /*<Link className="navbar-brand fw-bold me-4" to="/"></Link> */ }
+  
+        {}
+        <ul className="navbar-nav d-flex flex-row gap-4">
+          {roles.map((role) => (
+            <li className="nav-item dropdown" key={role}>
+              <button
+                className="btn btn-link nav-link dropdown-toggle text-capitalize"
+                onClick={() => toggleDropdown(role)}
+              >
+                {role}
+              </button>
+              {dropdown === role && (
+                <ul className="dropdown-menu show position-absolute">
+                  <li><Link className="dropdown-item" to={`/${role}/login`}>Login</Link></li>
+                  <li><Link className="dropdown-item" to={`/${role}/signin`}>Sign Up</Link></li>
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
     );
-}
+  }
+  
+
+  export default Header; // ✅ CORRECT

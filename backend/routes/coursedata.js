@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const pool = require("../config/db");
 const e = require('express');
 
-router.get('/courses/:adminId', async (req, res) => {
+router.get('/courses/:adminId/course', async (req, res) => {
     const { adminId } = req.params;
   
     try {

@@ -71,32 +71,68 @@ const FacultySignupPage = () => {
           <h2>Faculty Signup</h2>
           {message && <p className="success-message">{message}</p>}
           {error && <p className="error-message">{error}</p>}
-          <form>
-  
+          <form onSubmit={handleSubmit}>
   <div className="input-group mb-3">
-    <input type="email" className="form-control" placeholder="Email" />
+    <span className="input-group-text">@</span>
+    <input
+      type="text"
+      name="username"
+      className="form-control"
+      placeholder="Username"
+      value={formData.username}
+      onChange={handleChange}
+    />
+  </div>
+
+  <div className="input-group mb-3">
+    <input
+      type="email"
+      name="email"
+      className="form-control"
+      placeholder="Email"
+      value={formData.email}
+      onChange={handleChange}
+    />
     <span className="input-group-text">@example.com</span>
   </div>
 
   <div className="input-group mb-3">
     <span className="input-group-text">Age</span>
-    <input type="number" className="form-control" />
+    <input
+      type="number"
+      name="age"
+      className="form-control"
+      placeholder="Age"
+      value={formData.age}
+      onChange={handleChange}
+    />
   </div>
 
   <div className="input-group mb-3">
     <span className="input-group-text">Password</span>
-    <input type="password" className="form-control" />
+    <input
+      type="password"
+      name="password"
+      className="form-control"
+      placeholder="Password"
+      value={formData.password}
+      onChange={handleChange}
+    />
   </div>
+
   <div className="input-group mb-3">
-  <span className="input-group-text" id="inputGroup-sizing-default">  College name</span>
-  <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-</div>
-<div className="input-group mb-3">
-    <span className="input-group-text">experience</span>
-    <input type="number" className="form-control"/>
+    <span className="input-group-text">Name</span>
+    <input
+      type="text"
+      name="name"
+      className="form-control"
+      placeholder="Full Name"
+      value={formData.name}
+      onChange={handleChange}
+    />
   </div>
- 
-  <button className="btn ">Submit</button>
+
+  <button className="btn btn-primary">Submit</button>
 </form>
 
         </div>

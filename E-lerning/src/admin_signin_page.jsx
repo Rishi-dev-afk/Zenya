@@ -66,29 +66,68 @@ const AdminsigninPage = () => {
           <h2>Admin Signup</h2>
           {message && <p className="success-message">{message}</p>}
           {error && <p className="error-message">{error}</p>}
-          <form>
+          <form onSubmit={handleSubmit}>
   <div className="input-group mb-3">
     <span className="input-group-text">@</span>
-    <input type="text" className="form-control" placeholder="Username" />
+    <input
+      type="text"
+      name="username"
+      className="form-control"
+      placeholder="Username"
+      value={formData.username}
+      onChange={handleChange}
+    />
   </div>
 
   <div className="input-group mb-3">
-    <input type="email" className="form-control" placeholder="Email" />
+    <input
+      type="email"
+      name="email"
+      className="form-control"
+      placeholder="Email"
+      value={formData.email}
+      onChange={handleChange}
+    />
     <span className="input-group-text">@example.com</span>
   </div>
 
   <div className="input-group mb-3">
     <span className="input-group-text">Age</span>
-    <input type="number" className="form-control" />
+    <input
+      type="number"
+      name="age"
+      className="form-control"
+      value={formData.age}
+      onChange={handleChange}
+    />
   </div>
 
   <div className="input-group mb-3">
     <span className="input-group-text">Password</span>
-    <input type="password" className="form-control" />
+    <input
+      type="password"
+      name="password"
+      className="form-control"
+      value={formData.password}
+      onChange={handleChange}
+    />
   </div>
 
-  <button className="btn ">Submit</button>
+  <div className="input-group mb-3">
+    <span className="input-group-text">Name</span>
+    <input
+      type="text"
+      name="name"
+      className="form-control"
+      placeholder="Full Name"
+      value={formData.name}
+      onChange={handleChange}
+    />
+  </div>
+
+  <button className="btn">Submit</button>
 </form>
+
 
         </div>
       </div>
