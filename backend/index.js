@@ -36,6 +36,37 @@ app.use("/api", UnassignedFaculty);
 app.use("/api", findStudentData);
 
 // GET courses by admin ID
+
+app.get('/api/teacher/:teacherId/stats', async (req, res) => {
+  const { teacherId } = req.params;
+
+  try {
+      // 1. Get number of students linked to the teacher
+      const studentQuery = await pool.query(
+          'SELECT COUNT(*) FROM student WHERE teacher_id = $1',
+          [teacherId]
+      );
+
+      // 2. Get number of courses the teacher is enrolled in
+      const courseQuery = await pool.query(
+          'SELECT COUNT(*) FROM courses WHERE faculty_id = $1',
+          [teacherId]
+      );
+
+      const studentCount = parseInt(studentQuery.rows[0].count, 10);
+      const courseCount = parseInt(courseQuery.rows[0].count, 10);
+
+      res.json({
+          teacher_id: teacherId,
+          student_count: studentCount,
+          course_count: courseCount,
+      });
+  } catch (err) {
+      console.error('❌ Error fetching teacher stats:', err.message);
+      res.status(500).json({ error: 'Internal Server Error', details: err.message });
+  }
+});
+
 app.get('api/course/courses/:adminId', async (req, res) => {
   const { adminId } = req.params;
 

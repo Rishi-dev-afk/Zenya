@@ -1,14 +1,19 @@
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import './adminpage.css';
 
-export default function FacultyPage() {
+import Sidebar from "./studentsetup/sidebar";
+import Contant from "./studentsetup/contant"; 
+
+export default function Facltypage() {
     const location = useLocation();
     const userData = location.state || {}; 
+    const [activeTab, setActiveTab] = useState("dashboard");
     console.log(userData)
     return (
-        <div className="faculty-page">
-            <h1>Faculty Page</h1>
-            <p>Welcome to the faculty page!</p>
-            <p>Here you can manage courses, grades, and other faculty-related tasks.</p>
+        <div className="admin-page">
+            <Sidebar setActiveTab={setActiveTab} />
+            <Contant activeTab={activeTab} adminId={userData}/>
         </div>
     );
 }

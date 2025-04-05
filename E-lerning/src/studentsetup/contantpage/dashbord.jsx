@@ -48,7 +48,7 @@ console.log(stats.student_count, stats.faculty_count , stats.course_count);
         <div className="dashbord">
             <div className="dashbord__container">
                 <h3>
-                    Admin Dashbord
+                    Faculty Dashbord
                 </h3>
                 <div className="newanocment">
                     <h3>+ New Annocument</h3>
