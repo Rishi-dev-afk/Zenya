@@ -22,7 +22,8 @@ const courseData = require("./routes/coursedata");
 const facultyUnsignId = require("./routes/faculityunsignid");
 const UnassignedFaculty = require("./routes/UnassignedFaculty");
 const findStudentData = require("./routes/findstudentdata");
-const liveClassRoutes = require('./routes/liveClassRoutes'); // rename as per your file
+const liveClassRoutes = require('./routes/liveClassRoutes');
+const faculityunsignid = require('./routes/faculityunsignid');
 
 app.use(express.json());
 app.use(liveClassRoutes);
@@ -38,6 +39,7 @@ app.use("/api", courseData);
 app.use("/api", facultyUnsignId);
 app.use("/api", UnassignedFaculty);
 app.use("/api", findStudentData);
+app.use("/api", faculityunsignid);
 
 // GET courses by admin ID
 
